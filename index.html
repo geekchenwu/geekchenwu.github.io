@@ -173,7 +173,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Surfaceflinger服务漏洞："><a href="#Surfaceflinger服务漏洞：" class="headerlink" title="Surfaceflinger服务漏洞："></a>Surfaceflinger服务漏洞：</h2><p>代码位置：frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp</p>
-<p><img src="/.com//SurfaceFlinger.png" alt></p>
+<p><img src="/2020/04/13/OPPO-SurfaceFlinger%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E/SurfaceFlinger.png" alt="OPPO-Surfaceflinger服务漏洞"></p>
 <p>描述：rgb是定义在栈上但未初始化，因此当screenShot函数未能对rgb赋值时，会将未初始化值返回给攻击者，导致栈上的值信息泄露，该漏洞可被攻击者用于绕过ALSR。</p>
 <p>定级：中危</p>
 <p>修复建议：初始化rgb为0，如在‘RGB rgb’后添加一行代码‘memset(&amp;rgb, 0, sizeof(rgb))’。</p>
